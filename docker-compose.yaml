@@ -1,0 +1,12 @@
+version: '3'
+services:
+  api:
+    image: docker-node-mongo
+    build: .
+    command: "node api/server.js"
+    ports:
+      - "3000:3000"
+    env_file:
+      - app-variables.env
+    depends_on:
+      - "mongo"
