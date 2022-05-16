@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "HUB Project for EPITECH promotion 2025, in collaboration with Camille MAUX",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/iDommel/TrendAnalyzer.git"
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/iDommel/TrendAnalyzer#readme",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "snoowrap": "^1.23.0"
   }
 }
