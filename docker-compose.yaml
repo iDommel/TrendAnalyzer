@@ -1,12 +1,25 @@
 version: '3'
 services:
   api:
-    image: docker-node-mongo
-    build: .
-    command: "node api/server.js"
+    container_name: api
+    build:
+      context: ./server
+    ports:
+      - "5000:5000"
+    env_file:
+      - api-variables.env
+    networks:
+      - trendanalyser
+  app:
+    container_name: app
+    build:
+      context: ./client
     ports:
       - "3000:3000"
     env_file:
       - app-variables.env
-    depends_on:
-      - "mongo"
+    networks:
+      - trendanalyser
+networks:
+  trendanalyser:
+    driver: bridge
