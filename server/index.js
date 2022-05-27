@@ -35,6 +35,13 @@ app.get("/askreddit/bestof", (req, res) => {
     });
 });
 
-app.get("/test", (req, res) => {
-  res.send("test");
+app.get("/", async (req, res) => {
+  const { query } = req;
+  console.log(query);
+
+  const newPosts = await snoowrap
+    .getSubreddit(query.param)
+    .getNew({ options: { time: "month" } });
+  console.log(newPosts.length);
+  return res.status(200).send(query);
 });
