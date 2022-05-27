@@ -2,37 +2,20 @@ import logo from "./logo.svg";
 import "./App.css";
 import { useState } from "react";
 
-function App() {
+const App = () => {
   const [data, setData] = useState();
-  const [testData, setTestData] = useState();
 
   const getData = async () => {
-    const myHeaders = new Headers({
-      Accept: "application/json",
-    });
-
-    const rawData = await fetch("http://localhost:5000/askreddit/bestof", {
-      headers: myHeaders,
+    const resp = await fetch("http://localhost:5000/askreddit/bestof", {
+      headers: {
+        "Content-Type": "application/json",
+      },
       method: "GET",
     });
-    if (rawData.ok && rawData.status === 200) {
-      console.log(rawData);
-      setData(rawData.message);
-    }
-  };
-
-  const getTestData = async () => {
-    const myHeaders = new Headers({
-      "Access-Control-Allow-Origin": "*",
-    });
-
-    const rawData = await fetch("http://localhost:5000/test", {
-      headers: myHeaders,
-      method: "GET",
-    });
-    if (rawData.ok && rawData.status === 200) {
-      console.log(rawData);
-      setTestData(rawData);
+    const data = await resp.json();
+    if (resp.ok && resp.status === 200) {
+      console.log(data);
+      setData(data.message);
     }
   };
 
@@ -54,10 +37,8 @@ function App() {
       </header>
       <button onClick={getData}>Get Data</button>
       <p>{JSON.stringify(data)}</p>
-      <button onClick={getTestData}>Get test Data</button>
-      <p>{JSON.stringify(testData)}</p>
     </div>
   );
-}
+};
 
 export default App;
