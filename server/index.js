@@ -152,6 +152,35 @@ const getCommentsWeekly = async (subReddit, resBody) => {
   }
   return resBody;
 };
+const getNbNewPosts = async (subReddit, resBody) => {
+  const url = `https://api.pushshift.io/reddit/search/submission/?subreddit=${subReddit.display_name}&after=24h&size=0&metadata=true`;
+
+  try {
+    const res = await axios.get(url);
+    return {
+      ...resBody,
+      nbNewPosts: res.data.metadata.total_results,
+    };
+  } catch (err) {
+    console.log(err);
+  }
+  return resBody;
+};
+
+const getNbNewComments = async (subReddit, resBody) => {
+  const url = `https://api.pushshift.io/reddit/search/comment/?subreddit=${subReddit.display_name}&after=24h&size=0&metadata=true`;
+
+  try {
+    const res = await axios.get(url);
+    return {
+      ...resBody,
+      nbNewComments: res.data.metadata.total_results,
+    };
+  } catch (err) {
+    console.log(err);
+  }
+  return resBody;
+};
 
 app.get("/", async (req, res) => {
   const { query } = req;
@@ -169,6 +198,8 @@ app.get("/", async (req, res) => {
     resBody = await getPostsPerUser(subReddit, resBody);
     resBody = await getPostsWeekly(subReddit, resBody);
     resBody = await getCommentsWeekly(subReddit, resBody);
+    resBody = await getNbNewPosts(subReddit, resBody);
+    resBody = await getNbNewComments(subReddit, resBody);
     resBody = {
       ...resBody,
       subscribers: subReddit.subscribers,
