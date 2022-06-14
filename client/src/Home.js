@@ -32,7 +32,7 @@ class DivList extends React.Component {
               <Statistic title="Comments per Subcribers" value={data.commentsPerSub} precision={2} />
             </Col>
             <Col span={6}>
-              <Statistic title="New Comments (last 24h)" value={data.nbNewComments} precision={2} />
+              <Statistic title="New Comments (last 24h)" value={data.nbNewComments} />
             </Col>
           </Row>
           <Row gutter={16}>
@@ -40,7 +40,7 @@ class DivList extends React.Component {
               <Statistic title="Comments weekly" value={data.totalCommentsWeekly} />
             </Col>
             <Col span={9}>
-              <Statistic title="Comments last week" value={data.totalCommentsWeeklyPrev} precision={2} />
+              <Statistic title="Comments last week" value={data.totalCommentsWeeklyPrev} />
             </Col>
             <Col span={6}>
               <Statistic title="Comments increase" value={data.increaseComments} precision={2} suffix="%"/>
@@ -55,7 +55,7 @@ class DivList extends React.Component {
               <Statistic title="Posts per Subcribers" value={data.postsPerSub} precision={2} />
             </Col>
             <Col span={6}>
-              <Statistic title="New Posts (last 24h)" value={data.nbNewPosts} precision={2} />
+              <Statistic title="New Posts (last 24h)" value={data.nbNewPosts} />
             </Col>
           </Row>
           <Row gutter={16}>
@@ -63,13 +63,13 @@ class DivList extends React.Component {
               <Statistic title="Posts weekly" value={data.totalPostsWeekly} />
             </Col>
             <Col span={5}>
-              <Statistic title="Posts weekly per Subcribers" value={data.postsPerSubWeekly} precision={2} />
+              <Statistic title="Posts weekly per Subcribers" value={data.postsPerSubWeekly} precision={4} />
             </Col>
             <Col span={4}>
-              <Statistic title="Posts last week" value={data.totalPostsWeeklyPrev} precision={2} />
+              <Statistic title="Posts last week" value={data.totalPostsWeeklyPrev} />
             </Col>
             <Col span={5}>
-              <Statistic title="Posts last week per Subcribers" value={data.postsPerSubWeeklyPrev} precision={2} />
+              <Statistic title="Posts last week per Subcribers" value={data.postsPerSubWeeklyPrev} precision={4} />
             </Col>
             <Col span={4}>
               <Statistic title="Posts increase" value={data.increasePost} precision={2} suffix="%"/>
