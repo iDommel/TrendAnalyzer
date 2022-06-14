@@ -137,10 +137,10 @@ const getCommentsWeekly = async (subReddit, resBody) => {
       100;
     const result = {
       ...resBody,
-      postsPerSubWeekly:
+      commentsPerSubWeekly:
         resp1.data.metadata.total_results / subReddit.subscribers,
       totalCommentsWeekly,
-      postsPerSubWeeklyPrev:
+      commentsPerSubWeeklyPrev:
         resp2.data.metadata.total_results / subReddit.subscribers,
       totalCommentsWeeklyPrev,
       increaseComments,
