@@ -1,0 +1,32 @@
+{
+  "name": "trendanalyzer",
+  "version": "1.0.0",
+  "description": "HUB Project for EPITECH promotion 2025, in collaboration with Camille MAUX",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon -r dotenv/config index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iDommel/TrendAnalyzer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iDommel/TrendAnalyzer/issues"
+  },
+  "homepage": "https://github.com/iDommel/TrendAnalyzer#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "snoowrap": "^1.23.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}

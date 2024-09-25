@@ -1,0 +1,25 @@
+version: '3'
+services:
+  api:
+    container_name: api
+    build:
+      context: ./server
+    ports:
+      - "5000:5000"
+    env_file:
+      - api-variables.env
+    networks:
+      - trendanalyser
+  app:
+    container_name: app
+    build:
+      context: ./client
+    ports:
+      - "3000:3000"
+    env_file:
+      - app-variables.env
+    networks:
+      - trendanalyser
+networks:
+  trendanalyser:
+    driver: bridge
